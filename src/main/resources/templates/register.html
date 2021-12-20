@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Login page</title>
+    <title>Register page</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- Custom styles for this template -->
@@ -16,19 +16,19 @@
 </head>
 <body class="text-center">
 <div class="form-signin" id="container">
-    <h2 class="h3 mb-3 fw-normal">Please sign in</h2>
-    <form th:action="@{/loginCheck}" method="post">
+    <h2 class="h3 mb-3 fw-normal">Register</h2>
+    <form th:action="@{/registerCheck}" method="post">
 
-        <input type="text" id="username" name="username" class="form-control" placeholder="Email address" required autofocus/>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username/Email address" required autofocus/>
 
 
         <input type="password" id="password" class="form-control" name="password" placeholder="Password" required />
-        <input id="submit" type="submit" class="w-100 btn btn-lg btn-primary" value="Log in" />
+        <input id="submit" type="submit" class="w-100 btn btn-lg btn-primary" value="Register" />
     </form>
-    <form th:action="@{/goToRegister}" method="post">
-    <input id="goToRegister" type="submit" class="w-100 btn btn-lg btn-primary" value="Register Page" />
+    <form th:action="@{/goToLogin}" method="post">
+        <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Back to Login" />
     </form>
-    <p th:if="${loginError}" class="error" style="color:red">Wrong user or password</p>
+    <p th:if="${registerError}" class="error" style="color:red">Could not register</p>
 </div>
 </body>
 </html>

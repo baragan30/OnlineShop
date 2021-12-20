@@ -22,6 +22,11 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping("/goToRegister")
+    public String registerPage() {
+        return "register";
+    }
+
     @RequestMapping("/")
     public String index() {
         return "index";
