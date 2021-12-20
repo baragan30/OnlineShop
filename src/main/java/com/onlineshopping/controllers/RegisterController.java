@@ -19,20 +19,22 @@ public class RegisterController {
     }
 
     @RequestMapping("/register")
-    public String login() {
+    public String register() {
         return "register";
     }
+
+    @RequestMapping("/goToLogin")
+    public String goToLogin(){return "login";}
 
     @RequestMapping("/registerCheck")
     public String check(@ModelAttribute("username") String username, @ModelAttribute("password") String password, final Model model){
         User u = new User(username,password,"client");
         userRepository.save(u);
         return "succsess";
-
     }
 
     @RequestMapping("/register-error")
-    public String loginError(final Model model) {
+    public String registerError(final Model model) {
         model.addAttribute("registerError", true);
         return "register";
     }
