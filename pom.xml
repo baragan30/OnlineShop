@@ -69,6 +69,7 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 <!-- Add new 1-->
 <!--		<dependency>-->
 <!--			<groupId>org.hibernate</groupId>-->

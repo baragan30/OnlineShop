@@ -3,7 +3,7 @@ import javax.persistence.*;
 import java.util.Enumeration;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,7 +11,7 @@ public class User {
 
     private String username;
     private String password;
-    private UserRole role;
+    private String role;
 
     public Integer getId() {
         return id;
@@ -37,11 +37,11 @@ public class User {
         this.password = password;
     }
 
-    public UserRole getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(UserRole role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }
