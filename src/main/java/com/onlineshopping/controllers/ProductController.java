@@ -3,15 +3,13 @@ package com.onlineshopping.controllers;
 import com.onlineshopping.model.Product;
 import com.onlineshopping.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping(value = "/product")
 public class ProductController {
     private final ProductService productService;
@@ -22,9 +20,11 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public String getPersons(@RequestParam("id") long id,Model model){
-        Product p =  productService.findProductById(id);
-        model.addAttribute("product",p);
+    public String getPersons(@PathVariable String id, Model model){
+        int idI=Integer.parseInt(id);
+        Product p =  productService.findProductById(idI);
+        model.addAttribute("products",p.getName());
+        System.out.println(p.getName());
         return "product";
     }
 }
