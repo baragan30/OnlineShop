@@ -1,7 +1,8 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
 
-input[type=text], input[type=password] {
+.myLogInMainDiv{
+    width: 100%;
+}
+.myInputField {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -9,56 +10,33 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
-button {
-    background-color: #04AA6D;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+.myInputButtonDiv{
+    width :250px;
+    margin: auto;
 }
-#loginImage{
-    width: 200px;
+.myInputButton{
+    width :100%;
+    border-radius: 25px;
+    background-color:#fff200;
+    margin: 8px 0px auto;
+
+    color:black;
+    font-size: 20px;
 }
 
-button:hover {
+.myButton:hover {
     opacity: 0.8;
 }
 
-.cancelbtn {
+#cancelButton {
     width: auto;
     padding: 10px 18px;
     background-color: #f44336;
 }
-
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
-.container {
+.myContainer{
     padding: 16px;
+    margin: auto;
 }
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-    /*span.psw {*/
-    /*    display: block;*/
-    /*    float: none;*/
-    /*}*/
-    .cancelbtn {
-        width: 100%;
-    }
+.myForgotPassword{
+    float:right;
 }
