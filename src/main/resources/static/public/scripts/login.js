@@ -1,11 +1,8 @@
-const usernameInput = document.getElementsByName("uname")[0];
-const paswordInput = document.getElementsByName("psw")[0];
-const loginButton = document.getElementById("loginButton");
+const usernameInput = document.getElementById("username");
+const paswordInput = document.getElementById("password");
 const cancelButton = document.getElementById("cancelButton");
-const checkBox = document.getElementsByName('remember')[0];
 const errorLabel = document.getElementById('errorLabel');
 
-loginButton.addEventListener("click",onpressedLoginButton);
 cancelButton.addEventListener("click",onpressedCancelButton);
 
 usernameInput.addEventListener("input" ,(e) => {
@@ -23,12 +20,28 @@ function onTypeInput(sourceInput,input){
 }
 
 
-function onpressedLoginButton(e){
-    if(!(usernameInput.value === "") && !(paswordInput.value=== "") && checkBox.checked ){
-        console.log('Sent data');
-    }
-}
+// function onpressedLoginButton(e){
+//     if(!(usernameInput.value === "") && !(paswordInput.value=== "") ) {
+//         $.ajax({
+//             type: "GET",
+//             url: "/loginCheck/" + usernameInput.value + "," + paswordInput.value,
+//             timeout: 100000,
+//             success: function (response) {
+//                 console.log("SUCCESS: ");
+//                 console.log(response);
+//             },
+//             error: function (e) {
+//                 console.log("ERROR: ", e);
+//             },
+//             done: function (e) {
+//                 console.log("DONE");
+//             }
+//         });
+//     }
+// }
+
 function onpressedCancelButton(e){
+    window.location.href="/succ";
     usernameInput.value = "";
     paswordInput.value = "";
 }
