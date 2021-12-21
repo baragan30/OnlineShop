@@ -1,23 +1,23 @@
-const usernameInput = document.getElementById("username");
-const paswordInput = document.getElementById("password");
-const cancelButton = document.getElementById("cancelButton");
-const errorLabel = document.getElementById('errorLabel');
-
-cancelButton.addEventListener("click",onpressedCancelButton);
-
-usernameInput.addEventListener("input" ,(e) => {
-    onTypeInput("Username",usernameInput.value);
-});
-paswordInput.addEventListener("input" ,(e) => {
-    onTypeInput("Password",paswordInput.value);
-});
-
-function onTypeInput(sourceInput,input){
-    errorLabel.innerHTML = "";
-    if (input === ""){
-        errorLabel.innerHTML = sourceInput + " input is empty"
-    }
-}
+// const usernameInput = document.getElementById("username");
+// const paswordInput = document.getElementById("password");
+// const cancelButton = document.getElementById("cancelButton");
+// const errorLabel = document.getElementById('errorLabel');
+//
+// cancelButton.addEventListener("click",onpressedCancelButton);
+//
+// usernameInput.addEventListener("input" ,(e) => {
+//     onTypeInput("Username",usernameInput.value);
+// });
+// paswordInput.addEventListener("input" ,(e) => {
+//     onTypeInput("Password",paswordInput.value);
+// });
+//
+// function onTypeInput(sourceInput,input){
+//     errorLabel.innerHTML = "";
+//     if (input === ""){
+//         errorLabel.innerHTML = sourceInput + " input is empty"
+//     }
+// }
 
 
 // function onpressedLoginButton(e){
@@ -40,7 +40,7 @@ function onTypeInput(sourceInput,input){
 //     }
 // }
 
-function onpressedCancelButton(e){
-    usernameInput.value = "";
-    paswordInput.value = "";
-}
+// function onpressedCancelButton(e){
+//     usernameInput.value = "";
+//     paswordInput.value = "";
+// }
