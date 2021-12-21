@@ -41,6 +41,7 @@ function onTypeInput(sourceInput,input){
 // }
 
 function onpressedCancelButton(e){
+    window.location.href="/succ";
     usernameInput.value = "";
     paswordInput.value = "";
 }
