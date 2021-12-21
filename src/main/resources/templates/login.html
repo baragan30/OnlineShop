@@ -27,6 +27,9 @@
 
             <input id="loginButton" type="submit" class="w-100 btn btn-lg btn-primary" value="Log in" />
         </form>
+        <form th:action="@{/goToRegister}" method="post">
+            <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Go to Register" />
+        </form>
         <div style="color: red"><label id = "errorLabel"></label></div>
         <p th:if="${loginError}" style="color: red" class="error">Wrong user or password</p>
     </div>
