@@ -27,10 +27,18 @@ public class RegisterController {
     public String goToLogin(){return "login";}
 
     @RequestMapping("/registerCheck")
-    public String check(@ModelAttribute("username") String username, @ModelAttribute("password") String password, final Model model){
-        User u = new User(username,password,"client");
-        userRepository.save(u);
-        return "succsess";
+    public String check(@ModelAttribute("username") String username, @ModelAttribute("password1") String password1, @ModelAttribute("password2") String password2, final Model model){
+        if(password1.equals(password2)){
+            User tmp = userService.findByUsername(username);
+            if(tmp == null){
+                User u = new User(username,password1,"client");
+                userRepository.save(u);
+                return "login";
+            }else {
+                registerError(model);
+            }
+        }
+        return registerError(model);
     }
 
     @RequestMapping("/register-error")

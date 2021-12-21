@@ -33,7 +33,7 @@ public class LoginController {
     }
 
     @RequestMapping("/succ")
-    public String succ(){return "succsess";}
+    public String succ(){return "client";}
 
     @RequestMapping("/loginCheck")
     public String check(@ModelAttribute("username") String username,@ModelAttribute("password") String password,final Model model){
@@ -42,10 +42,14 @@ public class LoginController {
             return loginError(model);
         }
         if(username.equals(u.getUsername()) && password.equals(u.getPassword())){
-            return "succsess";
+            if(u.getRole().equals("Client"))
+                return "client";
+            if(u.getRole().equals("Worker"))
+                return "worker";
+            if(u.getRole().equals("Admin"))
+                return "admin";
         }
-        else
-            return loginError(model);
+        return loginError(model);
     }
 
     @RequestMapping("/login-error")
