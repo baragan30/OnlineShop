@@ -21,15 +21,20 @@
 
         <input type="text" id="username" name="username" class="form-control" placeholder="Username/Email address" required autofocus/>
 
-        <input type="password" id="password1" class="form-control" name="password1" placeholder="Password1" required />
-        <input type="password" id="password2" class="form-control" name="password2" placeholder="Password2" required />
+        <input type="password" id="password1" class="form-control" name="password1" placeholder="Password1" required autofocus/>
+        <input type="password" id="password2" class="form-control" name="password2" placeholder="Password2" required autofocus/>
 
         <input id="submit" type="submit" class="w-100 btn btn-lg btn-primary" value="Register" />
     </form>
     <form th:action="@{/goToLogin}" method="post">
-        <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Back to Login" />
+        <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Go to Login" />
     </form>
-    <p th:if="${registerError}" class="error" style="color:red">Could not register</p>
+
+    <ul>
+        <li th:if="${registerError}" class="error" style="color:red">Could not register</li>
+        <li th:if="${alreadyExists}" class="error" style="color:red">User already exists</li>
+        <li th:if="${notSamePasswords}" class="error" style="color:red">Passwords are not the same</li>
+    </ul>
 </div>
 </body>
 </html>
