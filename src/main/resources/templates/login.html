@@ -4,41 +4,33 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="../public/login.css" rel="stylesheet">
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-
-    <link href="../public/css/login.css" rel="stylesheet">
-    <link href="../public/css/exemple.html">
-    <title>Login page</title>
 </head>
-<body>
+<body class="text-center">
+<div class="form-signin" id="container">
+    <h2 class="h3 mb-3 fw-normal">Login</h2>
+    <form th:action="@{/loginCheck}" method="post">
 
-    <div class="myLogInMainDiv" >
-        <form action="/loginCheck" method="post"><input type="hidden" name="_csrf" value="7e3e3799-5e15-4e89-99e0-e2a047da6c95">
-            <label><b>Username</b></label>
-            <input id="username" class="myInputField" type="text"  name="username" >
+        <input type="text" id="username" name="username" class="form-control" placeholder="Username/Email address" required autofocus/>
 
-            <label><b>Password</b></label>
-            <input  id="password" class="myInputField" type="password" name="password">
+        <input type="password" id="password" class="form-control" name="password" placeholder="Password" required />
+        <input id="submit" type="submit" class="w-100 btn btn-lg btn-primary" value="Login" />
+    </form>
+    <form th:action="@{/goToRegister}" method="post">
+        <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Go to Register" />
+    </form>
 
-            <div class="myInputButtonDiv">
-                    <input id="loginButton" class="myInputButton" type="submit" value="Log in">
-            </div>
-        </form>
-        <form action="/goToRegister" method="post"><input type="hidden" name="_csrf" value="7e3e3799-5e15-4e89-99e0-e2a047da6c95">
-            <div class="myInputButtonDiv">
-                <input id="goToRegister" class="myInputButton" type="submit" value="Go to Register">
-            </div>
-        </form>
-        <div class="myErrorLabe"><label id="errorLabel">Sa cresti mare</label></div>
-
-        <div class="myContainer" style="background-color:#f1f1f1">
-            <button id="cancelButton" class="myButton" type="button">Cancel</button>
-            <div class="myForgotPassword">Forgot <a href="#">password?</a></div>
-        </div>
-    </div>
+    <ul>
+        <li th:if="${loginError}" class="error" style="color:red">Account doesn't exist</li>
+    </ul>
+</div>
 </body>
-<script src="../public/scripts/login.js"></script>
-
 </html>

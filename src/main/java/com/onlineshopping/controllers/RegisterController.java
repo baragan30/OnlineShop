@@ -35,15 +35,22 @@ public class RegisterController {
                 userRepository.save(u);
                 return "login";
             }else {
-                registerError(model);
+                errorHandler(model,1);
             }
+        }else{
+            errorHandler(model,2);
         }
-        return registerError(model);
+        return errorHandler(model,0);
     }
 
-    @RequestMapping("/register-error")
-    public String registerError(final Model model) {
-        model.addAttribute("registerError", true);
+    @RequestMapping("/register-Error")
+    public String errorHandler(final Model model, int errorNr){
+        model.addAttribute("registerError",true);
+        if (errorNr==1)
+            model.addAttribute("alreadyExists", true);
+        if (errorNr==2)
+            model.addAttribute("notSamePasswords", true);
         return "register";
     }
+
 }
