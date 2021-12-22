@@ -3,6 +3,8 @@ package com.onlineshopping.controllers;
 import com.onlineshopping.services.UserService;
 import com.onlineshopping.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,24 +18,6 @@ public class LoginController {
     public LoginController(UserService userService){
         this.userService = userService;
     }
-
-    @RequestMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @RequestMapping("/goToRegister")
-    public String registerPage() {
-        return "register";
-    }
-
-    @RequestMapping("/")
-    public String index() {
-        return "index";
-    }
-
-    @RequestMapping("/succ")
-    public String succ(){return "client";}
 
     @RequestMapping("/loginCheck")
     public String check(@ModelAttribute("username") String username,@ModelAttribute("password") String password,final Model model){
