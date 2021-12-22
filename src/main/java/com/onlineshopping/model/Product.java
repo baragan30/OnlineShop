@@ -55,4 +55,3 @@ public class Product {
 
     public void setPic3(String pic3) { this.pic3 = pic3;}
 }
-
