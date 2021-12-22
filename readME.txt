@@ -1,5 +1,6 @@
 Login & Register logic finished 
-toDo ?   client logic  : -> see a list of all products,  (images for products maybe ?)
+toDo ?   client logic  : -> work on the client html page 
+                         -> see a list of all products,  (images for products maybe ?)
                          -> option to add a new product + pending confirmation from a worker  (observer ?)
                          -> be able to order products 
 
