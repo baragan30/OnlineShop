@@ -1,3 +1,11 @@
+Login & Register logic finished 
+toDo ?   client logic  : -> see a list of all products,  (images for products maybe ?)
+                         -> option to add a new product + pending confirmation from a worker  (observer ?)
+                         -> be able to order products 
+
+
+
+
 Am inlocuit fosta pagina de login cu cea noua.
 
 Urmeaza sa schimbam si pagina de register (html + javascript) sa arate mai fain
