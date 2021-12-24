@@ -1,19 +1,19 @@
 package com.onlineshopping.model;
 
 public class Photo {
-    private int id;
+    private String id;
     private String source;
 
-    public Photo(int id,String source){
+    public Photo(String id,String source){
         this.id=id;
         this.source=source;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
