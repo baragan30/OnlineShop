@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,8 +24,16 @@ public class ProductController {
     public String getPersons(@PathVariable String id, Model model){
         int idI=Integer.parseInt(id);
         Product p =  productService.findProductById(idI);
+        ArrayList<String> pics=new ArrayList<>();
+        pics.add(p.getPic1());
+        if(p.getPic2()!=null){
+            pics.add(p.getPic2());
+            if(p.getPic3()!=null){
+                pics.add(p.getPic3());
+            }
+        }
         model.addAttribute("products",p.getName());
-        System.out.println(p.getName());
+        model.addAttribute("pics",pics);
         return "product";
     }
 }

@@ -18,14 +18,6 @@ public class RegisterController {
         this.userRepository = userRepository;
     }
 
-    @RequestMapping("/register")
-    public String register() {
-        return "register";
-    }
-
-    @RequestMapping("/goToLogin")
-    public String goToLogin(){return "login";}
-
     @RequestMapping("/registerCheck")
     public String check(@ModelAttribute("username") String username, @ModelAttribute("password1") String password1, @ModelAttribute("password2") String password2, final Model model){
         if(password1.equals(password2)){
