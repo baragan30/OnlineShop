@@ -36,6 +36,7 @@ public class ProductController {
         }
         model.addAttribute("products",p.getName());
         model.addAttribute("pics",pics);
+        model.addAttribute("description",p.getDescription());
         return "product";
     }
 }
