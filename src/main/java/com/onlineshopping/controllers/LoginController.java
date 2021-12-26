@@ -1,10 +1,8 @@
 package com.onlineshopping.controllers;
 
-import com.onlineshopping.services.UserService;
+import com.onlineshopping.services.MyUserDetailsService;
 import com.onlineshopping.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
-    private final UserService userService;
+    private final MyUserDetailsService userService;
 
     @Autowired
-    public LoginController(UserService userService){
+    public LoginController(MyUserDetailsService userService){
         this.userService = userService;
     }
 

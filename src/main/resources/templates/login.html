@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,20 +20,22 @@
 <body class="text-center">
 <div class="form-signin" id="container">
     <h2 class="h3 mb-3 fw-normal">Login</h2>
-    <form th:action="@{/loginCheck}" method="post">
+    <form th:action="@{/login}" method="post">
 
         <input type="text" id="username" name="username" class="form-control" placeholder="Username/Email address" required autofocus/>
 
         <input type="password" id="password" class="form-control" name="password" placeholder="Password" required />
-        <input id="submit" type="submit" class="w-100 btn btn-lg btn-primary" value="Login" />
+        <input id="submit" type="submit" class="w-100 btn btn-lg btn-primary" value="Sign In" />
     </form>
     <form th:action="@{/register}" method="post">
         <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Go to Register" />
     </form>
-
-    <ul>
-        <li th:if="${loginError}" class="error" style="color:red">Account doesn't exist</li>
-    </ul>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
 </div>
 </body>
 </html>
