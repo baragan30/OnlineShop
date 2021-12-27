@@ -92,33 +92,44 @@
                                     <button id="changePasswordButton" class="myButton myRoundButton myYellow" type="button">Change Password</button>
                                 </div>
                                 <a href="/print">CLick ME</a>
+                                <ul>
+                                    <li th:if="${wrongPassword}" class="error" style="color:red"> Wrong Password.</li>
+                                    <li th:if="${emptyPassword}" class="error" style="color:red"> Fields must not be empty.</li>
+                                    <li th:if="${differentPasswords}" class="error" style="color:red"> Password1 and Password2 are not the same</li>
+                                </ul>
                             </div>
+
+
 <!-------------------------------Username Scene ----------------------------------------->
                             <div id="usernameScene">
+                                <form th:action="@{/changeUsername}" method="post">
                                 <label><b>NewUsername</b></label>
                                 <input id="newusername" class="myInputField" type="text" name="username">
                                 <label><b>Password</b></label>
                                 <input id="password1" class="myInputField" type="password" name="password">
 
                                 <div class="myContainer mySaveCancelContainer">
-                                    <button id="saveButton1" class="myButton myGreen" type="button">Save Changes</button>
+                                    <input id="saveButton1" type="submit" class="myButton myGreen" value ="Save Changes" />
                                     <button id="cancelButton1" class="myButton right cancelButton" type="button">Cancel</button>
                                 </div>
+                                </form>
                             </div>
 
 <!-- -------------------------Password Scene -------------------->
                             <div id="passwordScene">
+                                <form th:action="@{/changePassword}" method="post">
                                 <label><b>Password</b></label>
-                                <input id="password2" class="myInputField" type="password" name="password">
+                                <input id="password2" class="myInputField" type="password" name="password2">
                                 <label><b>New password</b></label>
-                                <input id="newpassword1" class="myInputField" type="text" name="username">
+                                <input id="newpassword1" class="myInputField" type="text" name="newpassword1">
                                 <label><b>Confirm new password</b></label>
-                                <input id="newpassword2" class="myInputField" type="text" name="username">
+                                <input id="newpassword2" class="myInputField" type="text" name="newpassword2">
 
                                 <div class="myContainer mySaveCancelContainer">
-                                    <button id="saveButton2" class="myButton myGreen" type="button">Save Changes</button>
+                                    <input id="saveButton2" type="submit" class="myButton myGreen" value ="Save Changes" />
                                     <button id="cancelButton2" class="myButton right cancelButton" type="button">Cancel</button>
                                 </div>
+                                </form>
                             </div>
 
 

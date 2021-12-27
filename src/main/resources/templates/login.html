@@ -30,12 +30,14 @@
     <form th:action="@{/register}" method="post">
         <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Go to Register" />
     </form>
-    <div th:if="${param.error}">
-        Invalid username and password.
-    </div>
-    <div th:if="${param.logout}">
-        You have been logged out.
-    </div>
+
+    <ul>
+        <li th:if="${loginError}" class="error" style="color:red"> Invalid username or password.</li>
+        <li th:if="${changeUserSuccess}" class="error" style="color:green"> Username changed successfully. Login again.</li>
+        <li th:if="${changePasswordSuccess}" class="error" style="color:green"> Password changed successfully. Login again.</li>
+        <li th:if="${param.logout}" class="error" style="color:red"> You have been logged out.</li>
+    </ul>
+
 </div>
 </body>
 </html>

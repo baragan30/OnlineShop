@@ -49,4 +49,5 @@ public class LoginController {
         System.out.println(authentication.getName());
         return authentication.getName();
     }
+
 }
