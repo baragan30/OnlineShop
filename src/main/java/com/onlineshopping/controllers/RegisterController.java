@@ -2,7 +2,7 @@ package com.onlineshopping.controllers;
 
 import com.onlineshopping.model.User;
 import com.onlineshopping.repositories.UserRepository;
-import com.onlineshopping.services.UserService;
+import com.onlineshopping.services.MyUserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class RegisterController {
-    private final UserService userService;
+    private final MyUserDetailsService userService;
     private final UserRepository userRepository;
 
-    public RegisterController(UserService userService, UserRepository userRepository) {
+    public RegisterController(MyUserDetailsService userService, UserRepository userRepository) {
         this.userService = userService;
         this.userRepository = userRepository;
     }

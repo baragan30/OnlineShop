@@ -151,7 +151,7 @@
  .right{
      float: right;
  } 
- #cancelButton {
+ .cancelButton {
      width: auto;
      background-color: #f44336;
  }
