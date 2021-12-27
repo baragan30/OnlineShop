@@ -20,6 +20,7 @@ public class RegisterController {
 
     @RequestMapping("/registerCheck")
     public String check(@ModelAttribute("username") String username, @ModelAttribute("password1") String password1, @ModelAttribute("password2") String password2, final Model model){
+        System.out.println("Register");
         if(password1.equals(password2)){
             User tmp = userService.findByUsername(username);
             if(tmp == null){
