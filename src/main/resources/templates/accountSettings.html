@@ -84,33 +84,45 @@
 
                         <!-- Here's our code -->
                         <div id='mainDiv' class="myLogInMainDiv">
-                            <!-- Default  -->
-                            <div class="myYellowRoundButtonDiv">
-                                <button id="changeUsernameButton" class="myButton myRoundButton myYellow" type="button">Change Username</button>
-                                <button id="changePasswordButton" class="myButton myRoundButton myYellow" type="button">Change Password</button>
+
+    <!-------------------------------Default Scene ----------------------------------------->
+                            <div id = "defaultScene">
+                                <div class="myYellowRoundButtonDiv">
+                                    <button id="changeUsernameButton" class="myButton myRoundButton myYellow" type="button">Change Username</button>
+                                    <button id="changePasswordButton" class="myButton myRoundButton myYellow" type="button">Change Password</button>
+                                </div>
+                                <a href="/print">CLick ME</a>
+                            </div>
+<!-------------------------------Username Scene ----------------------------------------->
+                            <div id="usernameScene">
+                                <label><b>NewUsername</b></label>
+                                <input id="newusername" class="myInputField" type="text" name="username">
+                                <label><b>Password</b></label>
+                                <input id="password1" class="myInputField" type="password" name="password">
+
+                                <div class="myContainer mySaveCancelContainer">
+                                    <button id="saveButton1" class="myButton myGreen" type="button">Save Changes</button>
+                                    <button id="cancelButton1" class="myButton right cancelButton" type="button">Cancel</button>
+                                </div>
                             </div>
 
-                            <label><b>NewUsername</b></label>
-                            <input id="newusername" class="myInputField" type="text" name="username">
-                            <label><b>Password</b></label>
-                            <input id="password1" class="myInputField" type="password" name="password">
-                                
-                            <div class="myContainer mySaveCancelContainer">
-                                <button id="saveButton1" class="myButton myGreen" type="button">Save Changes</button>
-                                <button id="cancelButton1" class="myButton right" type="button">Cancel</button>
+<!-- -------------------------Password Scene -------------------->
+                            <div id="passwordScene">
+                                <label><b>Password</b></label>
+                                <input id="password2" class="myInputField" type="password" name="password">
+                                <label><b>New password</b></label>
+                                <input id="newpassword1" class="myInputField" type="text" name="username">
+                                <label><b>Confirm new password</b></label>
+                                <input id="newpassword2" class="myInputField" type="text" name="username">
+
+                                <div class="myContainer mySaveCancelContainer">
+                                    <button id="saveButton2" class="myButton myGreen" type="button">Save Changes</button>
+                                    <button id="cancelButton2" class="myButton right cancelButton" type="button">Cancel</button>
+                                </div>
                             </div>
 
-                            <label><b>Password</b></label>
-                            <input id="password2" class="myInputField" type="password" name="password">
-                            <label><b>New password</b></label>
-                            <input id="newpassword1" class="myInputField" type="text" name="username">
-                            <label><b>Confirm new password</b></label>
-                            <input id="newpassword2" class="myInputField" type="text" name="username">
-                                
-                            <div class="myContainer mySaveCancelContainer">
-                                <button id="saveButton2" class="myButton myGreen" type="button">Save Changes</button>
-                                <button id="cancelButton2" class="myButton right" type="button">Cancel</button>
-                            </div>
+
+
 
                             
                         </div>

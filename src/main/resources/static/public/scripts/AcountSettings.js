@@ -1,27 +1,6 @@
-const defaultScene = `                            <div class="myYellowRoundButtonDiv">
-<button id="changeUsernameButton" class="myButton myRoundButton myYellow" type="button">Change Username</button>
-<button id="changePasswordButton" class="myButton myRoundButton myYellow" type="button">Change Password</button>
-</div>`;
-const usernameScene = ` <label><b>NewUsername</b></label>
-<input id="newusername" class="myInputField" type="text" name="username">
-<label><b>Password</b></label>
-<input id="password" class="myInputField" type="password" name="password">
-    
-<div class="myContainer mySaveCancelContainer">
-    <button id="saveButton" class="myButton myGreen" type="button">Save Changes</button>
-    <button id="cancelButton" class="myButton right" type="button">Cancel</button>
-</div>`;
-const passwordScene = `                            <label><b>Password</b></label>
-<input id="password" class="myInputField" type="password" name="password">
-<label><b>New password</b></label>
-<input id="newpassword1" class="myInputField" type="password" name="username">
-<label><b>Confirm new password</b></label>
-<input id="newpassword2" class="myInputField" type="password" name="username">
-    
-<div class="myContainer mySaveCancelContainer">
-    <button id="saveButton" class="myButton myGreen" type="button">Save Changes</button>
-    <button id="cancelButton" class="myButton right" type="button">Cancel</button>
-</div>`;
+const defaultScene = document.getElementById("defaultScene").innerHTML;
+const usernameScene = document.getElementById("usernameScene").innerHTML;
+const passwordScene = document.getElementById("passwordScene").innerHTML;
 
 const mainDiv = document.getElementById('mainDiv');
 let changePasswordButton = null;
@@ -39,19 +18,18 @@ function initialize(state){
             break;
         case 1 :
             // let saveButton = document.getElementById("saveButton");
-            cancelButton = document.getElementById("cancelButton");
+            cancelButton = document.getElementById("cancelButton1");
             cancelButton.addEventListener('click',uploadDefaultScene);
             break;
         case 2 :
             // let saveButton = document.getElementById("saveButton");
-            cancelButton = document.getElementById("cancelButton");
+            cancelButton = document.getElementById("cancelButton2");
             cancelButton.addEventListener('click',uploadDefaultScene);
             break;
     }
 }
 
 function uploadDefaultScene(){
-    console.log('wtf');
     mainDiv.innerHTML = defaultScene;
     initialize(0);
 }
