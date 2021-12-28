@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul th:each="product: ${products}">
+    <li th:text="${product.getProduct_id()} +' '+ ${product.getName()} + ' ' + ${product.getPrice()}" >
+    </li>
+    <form th:action="'/product/'+ ${product.getProduct_id()}">
+        <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Do Stuff" />
+    </form>
+</ul>
+</body>
+</html>

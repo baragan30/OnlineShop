@@ -23,7 +23,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public String getPersons(@PathVariable String id, Model model){
+    public String getProducts(@PathVariable String id, Model model){
         int idI=Integer.parseInt(id);
         Product p =  productService.findProductById(idI);
         ArrayList<Photo> pics=new ArrayList<>();
