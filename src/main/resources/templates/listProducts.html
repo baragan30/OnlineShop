@@ -9,6 +9,7 @@
 <ul th:each="product: ${products}">
     <li th:text="${product.getProduct_id()} +' '+ ${product.getName()} + ' ' + ${product.getPrice()}" >
     </li>
+    <img th:src="${product.getPic1()}" style="width:250px;height:300px;" alt="photo">
     <form th:action="'/product/'+ ${product.getProduct_id()}">
         <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="Do Stuff" />
     </form>
