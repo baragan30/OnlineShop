@@ -20,23 +20,6 @@ public class LoginController {
         this.userService = userService;
     }
 
-    @RequestMapping("/loginCheck")
-    public String check(@ModelAttribute("username") String username,@ModelAttribute("password") String password,final Model model){
-        User u= userService.findByUsername(username);
-        if(u==null){
-            return loginError(model);
-        }
-        if(username.equals(u.getUsername()) && password.equals(u.getPassword())){
-            if(u.getRole().equals("Client"))
-                return "client";
-            if(u.getRole().equals("Worker"))
-                return "worker";
-            if(u.getRole().equals("Admin"))
-                return "admin";
-        }
-        return loginError(model);
-    }
-
     @RequestMapping("/login-error")
     public String loginError(final Model model) {
         model.addAttribute("loginError", true);
