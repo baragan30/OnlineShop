@@ -18,22 +18,12 @@ public class RequestPageController {
 
     @RequestMapping("/")
     public String GoToIndex() {
-        return "index";
-    }
-
-    @RequestMapping("/index")
-    public String GoToIndex2() {
-        return "index";
+        return "home";
     }
 
     @RequestMapping("/home")
     public String goToHome() {
         return "home";
-    }
-
-    @RequestMapping("/contact")
-    public String goToContact() {
-        return "contact";
     }
 
     @RequestMapping("/accountSettings")
