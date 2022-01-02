@@ -31,9 +31,8 @@ public class ProductController {
                 pics.add(new Photo("3",p.getPic3()));
             }
         }
-        model.addAttribute("products",p.getName());
+        model.addAttribute("product",p);
         model.addAttribute("pics",pics);
-        model.addAttribute("description",p.getDescription());
         return "product";
     }
 }

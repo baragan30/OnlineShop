@@ -92,7 +92,7 @@
                         </div>
                         <!-- card right -->
                         <div class = "product-content">
-                            <h2 id="product-title" class = "product-title" th:text="${products}"></h2>
+                            <h2 id="product-title" class = "product-title" th:text="${product.getName()}"></h2>
                             <a href = "#" class = "product-link">visit nike store</a>
                             <div class = "product-rating">
                                 <i class = "fas fa-star"></i>
@@ -110,7 +110,7 @@
 
                             <div class = "product-detail">
                                 <h2>about this item: </h2>
-                                <p th:text="${description}"></p>
+                                <p th:text="${product.getDescription()}"></p>
                                 <ul>
                                     <li>Color: <span>Black</span></li>
                                     <li>Available: <span>in stock</span></li>
@@ -121,11 +121,14 @@
                             </div>
 
                             <div class = "purchase-info">
-                                <input type = "number" min = "0" value = "1">
-                                <button type = "button" class = "btn">
-                                    Add to Cart <i class = "fas fa-shopping-cart"></i>
-                                </button>
-                                <button type = "button" class = "btn">Compare</button>
+                                <form th:action="@{/makeorder}" method="post">
+                                    <input type = "number" name="productId"  th:value="${product.getId()}">
+                                    <input type = "number" name="quantity" min = "0" value = "1">
+                                    <button type = "submit" class = "btn">
+                                        Add to Cart <i class = "fas fa-shopping-cart"></i>
+                                    </button>
+                                    <button type = "button" class = "btn">Compare</button>
+                                </form>
                             </div>
 
                             <div class = "social-links">

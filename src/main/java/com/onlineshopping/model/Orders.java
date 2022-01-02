@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table (name = "orders")
 public class Orders {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -17,6 +18,13 @@ public class Orders {
 
     @Column(name = "quantity")
     private Integer quantity;
+
+    public Orders(Integer idUser, Integer idProduct, Integer quantity) {
+        this.idUser = idUser;
+        this.idProduct = idProduct;
+        this.quantity = quantity;
+    }
+
 
     public Integer getId(){
         return id;

@@ -15,6 +15,9 @@ public class OrderService {
     public OrderService(OrderRepository orderRepository){
         this.orderRepository=orderRepository;
     }
+    public  void makeOrder(Orders orders){
+        orderRepository.save(orders);
+    }
 
     public List<Orders> findOrders(){
         return orderRepository.findAll();
