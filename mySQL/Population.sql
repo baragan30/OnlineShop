@@ -6,8 +6,7 @@ Insert into Products(name,price) values
 Insert into Users(username,password,role) values 
 ('Gheorghe65','cacamas pe ea de viata','Admin');
 
-Insert into Orders(idUser,idProduct,cantity) values
-(1,1,10);
+
 
 --description e varchar(600) not null
 --pic1, pic2 and pic3 sunt varchar(200)
@@ -18,7 +17,7 @@ Insert into Orders(idUser,idProduct,cantity) values
 Insert into Products(name,price,description ,pic1,pic2,pic3) values
 ('Mere',5.0,'Healthy','https://www.auchan.ro/public/images/h2e/h65/h00/mere-rosii-2-kg-8904758394910.jpg','https://www.cora.ro/images/products/1809111/gallery/1809111_hd_1.jpg','http://storage0.dms.mpinteractiv.ro/media/1/1481/25566/17510001/1/04-apples.jpg');
 --2
-Insert into Products(name,price,descripion ,pic1,pic2) values
+Insert into Products(name,price,description ,pic1,pic2) values
 ('LEGO Star Wars Millenium Falcon', 3999.99,'7541 Pieces and 7 Minifigs', 'https://mcdn.elefant.ro/mnresize/1500/1500/is/product-images/jucarii/fd329539/c06a/44e4/98a1/995cf80d5ffc/fd329539-c06a-44e4-98a1-995cf80d5ffc_3.jpg','https://brickdepot.ro/bmz_cache/d/d2a008765ef3154750ad0d3de6ec3834.image.484x350.jpg');
 --3
 Insert into Products(name,price,description,pic1) value
@@ -47,3 +46,5 @@ Insert into Products(name,price,description,pic1,pic2) value
 Insert into Products(name,price,description,pic1) value
 ('Wine',1500.0,'18+ Only. Various assortments, only one.','https://www.wine-searcher.com/images/labels/62/52/10676252.jpg');
 
+Insert into Orders(idUser,idProduct,cantity) values
+    (1,1,10);

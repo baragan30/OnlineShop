@@ -31,12 +31,17 @@ public class RequestPageController {
 
     @RequestMapping("/")
     public String GoToIndex() {
-        return "home";
+        return "/home";
     }
 
     @RequestMapping("/home")
-    public String goToHome() {
-        return "home";
+    public String goToHome(Authentication authentication) {
+        if(authentication!=null){
+            return "home";
+        }
+        else{
+            return "homeUnlogged";
+        }
     }
 
     @RequestMapping("/accountSettings")
