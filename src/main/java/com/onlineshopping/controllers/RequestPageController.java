@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class RequestController {
+public class RequestPageController {
 
     @RequestMapping("/login")
     public String goToLoginPage() {
@@ -18,22 +18,12 @@ public class RequestController {
 
     @RequestMapping("/")
     public String GoToIndex() {
-        return "index";
-    }
-
-    @RequestMapping("/index")
-    public String GoToIndex2() {
-        return "index";
+        return "home";
     }
 
     @RequestMapping("/home")
     public String goToHome() {
         return "home";
-    }
-
-    @RequestMapping("/contact")
-    public String goToContact() {
-        return "contact";
     }
 
     @RequestMapping("/accountSettings")
