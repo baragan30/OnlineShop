@@ -1,7 +1,10 @@
 package com.onlineshopping.controllers;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RequestPageController {
@@ -27,7 +30,8 @@ public class RequestPageController {
     }
 
     @RequestMapping("/accountSettings")
-    public String goToAccountSettings() {
+    public String goToAccountSettings(Authentication authentication, @RequestParam(name="username", required=false, defaultValue="World") String name, Model model) {
+        model.addAttribute("username", authentication.getName());
         return "accountSettings";
     }
 
