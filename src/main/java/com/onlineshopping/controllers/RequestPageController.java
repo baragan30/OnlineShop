@@ -1,13 +1,23 @@
 package com.onlineshopping.controllers;
 
 import org.springframework.security.core.Authentication;
+import com.onlineshopping.model.Product;
+import com.onlineshopping.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class RequestPageController {
+    private final ProductService productService;
+    @Autowired
+    public RequestPageController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @RequestMapping("/login")
     public String goToLoginPage() {
@@ -46,7 +56,9 @@ public class RequestPageController {
     }
 
     @RequestMapping("/productList")
-    public String goToProductList() {
+    public String goToProductList(Model model) {
+        ArrayList<Product> p= new ArrayList<Product>(productService.findProducts());
+        model.addAttribute("products",p);
         return "productList";
     }
 }

@@ -52,25 +52,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/logout")
                 .permitAll();
-//                .permitAll();
-//        http
-//                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-//                .and()
-//                .authorizeRequests()
-//                    .antMatchers("/register").permitAll()
-//                    .antMatchers("/public/**").permitAll()
-//                    .antMatchers("/actuator/health").permitAll()
-//                    .antMatchers("/swagger-ui/**").permitAll()
-//                    .antMatchers("/swagger-resources/**").permitAll()
-//                    .antMatchers("/webjars/**").permitAll()
-//                    .anyRequest().authenticated()
-//                    .and()
-//                .formLogin()
-//                    .loginPage("/login")
-//                    .permitAll()
-//                    .and()
-//                .logout()
-//                    .permitAll();
     }
 
 

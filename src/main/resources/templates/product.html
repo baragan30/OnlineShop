@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,33 +17,19 @@
         <div class = "product-imgs">
             <div class = "img-display">
                 <div class = "img-showcase">
-                    <img src = "https://www.auchan.ro/public/images/h2e/h65/h00/mere-rosii-2-kg-8904758394910.jpg" alt = "shoe image">
-                    <img src = "../public/shoes_images/shoe_2.jpg" alt = "shoe image">
-                    <img src = "../public/shoes_images/shoe_3.jpg" alt = "shoe image">
-                    <img src = "../public/shoes_images/shoe_4.jpg" alt = "shoe image">
+                    <tr th:each="pic: ${pics}">
+                        <img th:src="${pic.getSource()}"  alt = "shoe image">
+                    </tr>
                 </div>
             </div>
-            <div class = "img-select">
+            <div class = "img-select" >
+               <tr th:each="pic: ${pics}">
                 <div class = "img-item">
-                    <a href = "#" data-id = "1">
-                        <img src = "https://www.auchan.ro/public/images/h2e/h65/h00/mere-rosii-2-kg-8904758394910.jpg" alt = "shoe image">
+                    <a href = "#" th:data-id = "${pic.getId()}">
+                        <img th:src ="${pic.getSource()}" alt = "shoe image">
                     </a>
                 </div>
-                <div class = "img-item">
-                    <a href = "#" data-id = "2">
-                        <img src = "../public/shoes_images/shoe_2.jpg" alt = "shoe image">
-                    </a>
-                </div>
-                <div class = "img-item">
-                    <a href = "#" data-id = "3">
-                        <img src = "../public/shoes_images/shoe_3.jpg" alt = "shoe image">
-                    </a>
-                </div>
-                <div class = "img-item">
-                    <a href = "#" data-id = "4">
-                        <img src = "../public/shoes_images/shoe_4.jpg" alt = "shoe image">
-                    </a>
-                </div>
+               </tr>
             </div>
         </div>
         <!-- card right -->
@@ -66,8 +52,7 @@
 
             <div class = "product-detail">
                 <h2>about this item: </h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+                <p th:text="${description}"></p>
                 <ul>
                     <li>Color: <span>Black</span></li>
                     <li>Available: <span>in stock</span></li>
