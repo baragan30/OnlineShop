@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer product_id;
+    private Integer id;
     private String name;
     private String description;
     private Float price;
@@ -15,12 +15,12 @@ public class Product {
     private String pic2;
     private String pic3;
 
-    public Integer getProduct_id() {
-        return product_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setProduct_id(Integer id) {
-        this.product_id = id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

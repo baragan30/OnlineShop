@@ -13,7 +13,11 @@ use OnlineShop;
     CREATE TABLE if not exists Products (
         id INT primary key NOT NULL auto_increment,
         name VARCHAR(45) not NULL,
-        price float not null
+        price float not null,
+        description varchar(600),
+        pic1 varchar(200) not null,
+        pic2 varchar(200),
+        pic3 varchar(200)
     );
 
     Create table if not exists Orders (

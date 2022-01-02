@@ -22,7 +22,7 @@ public class ProductListController {
     @RequestMapping("/list")
     public String showProduct(Model model){
         ArrayList<Product> products=new ArrayList(productService.findProducts());
-        System.out.println(products.get(0).getProduct_id());
+        System.out.println(products.get(0).getId());
         if(!products.isEmpty()){
             model.addAttribute("products",products);
         }

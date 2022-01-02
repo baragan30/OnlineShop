@@ -1,13 +1,12 @@
 package com.onlineshopping.model;
 import javax.persistence.*;
-import java.util.Enumeration;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer user_id;
+    private Integer id;
 
     private String username;
     private String password;
@@ -24,12 +23,12 @@ public class User {
 
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setUser_id(Integer id) {
-        this.user_id = id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {
