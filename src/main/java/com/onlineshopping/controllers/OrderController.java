@@ -29,6 +29,7 @@ public class OrderController {
 
     @RequestMapping("/orders")
     public String show(final Model model){
+          orderService.findOrders();
         ArrayList<Orders> orders=new ArrayList(orderService.findOrders());
         ArrayList<OrderText> ot=new ArrayList<>();
         System.out.println(orders.get(0).getIdUser());
@@ -36,7 +37,7 @@ public class OrderController {
             for (Orders order : orders) {
                 ot.add(new OrderText(order.getId(),
                         userService.findUserById(order.getIdUser()).getUsername(),
-                        productService.findProductById(order.getIdProduct()).getName(),order.getIdProduct(),order.getCantity()));
+                        productService.findProductById(order.getIdProduct()).getName(),order.getIdProduct(),order.getQuantity()));
             }
         }
         model.addAttribute("orders",ot);

@@ -24,7 +24,7 @@ use OnlineShop;
         id Int  primary key not null auto_increment,
         idUser Int not null,
         idProduct Int not null,
-        cantity Int not null,
+        quantity Int not null,
         FOREIGN KEY (idUser) REFERENCES Users(id),
         FOREIGN KEY (idProduct) REFERENCES Products(id)
     );

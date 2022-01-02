@@ -9,10 +9,14 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "idUser")
+    @Column(name = "iduser")
     private Integer idUser;
+
+    @Column(name = "idproduct")
     private Integer idProduct;
-    private Integer cantity;
+
+    @Column(name = "quantity")
+    private Integer quantity;
 
     public Integer getId(){
         return id;
@@ -38,11 +42,11 @@ public class Orders {
         this.idProduct = idProduct;
     }
 
-    public Integer getCantity() {
-        return cantity;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setCantity(Integer cantity) {
-        this.cantity = cantity;
+    public void setQuantity(Integer cantity) {
+        this.quantity = cantity;
     }
 }
