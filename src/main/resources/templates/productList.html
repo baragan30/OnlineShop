@@ -64,7 +64,14 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
             <div id="mainDiv">
-                My Class
+                <ul th:each="product: ${products}">
+                    <li th:text="${product.getId()} +' '+ ${product.getName()} + ' ' + ${product.getPrice()}" >
+                    </li>
+                    <img th:src="${product.getPic1()}" style="width:250px;height:300px;" alt="photo">
+                    <form th:action="'/product/'+ ${product.getId()}">
+                        <input id="goToLogin" type="submit" class="w-100 btn btn-lg btn-primary" value="View Product" />
+                    </form>
+                </ul>
             </div>
         </div>
       </div>
