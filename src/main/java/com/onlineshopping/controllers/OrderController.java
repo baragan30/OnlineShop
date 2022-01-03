@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.net.Authenticator;
 import java.util.ArrayList;
 
 @Controller
@@ -54,6 +52,8 @@ public class OrderController {
                       @ModelAttribute("productId") Number productId,
                       @ModelAttribute("quantity") Number quantity,
                       final Model model) {
+
+        System.out.println(productId + " " + quantity);
         User user = userService.findByUsername(authentication.getName());
         Orders orders = new Orders(user.getId(),productId.intValue(),quantity.intValue());
         orderService.makeOrder(orders);

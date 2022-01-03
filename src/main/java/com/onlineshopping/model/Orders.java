@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Orders {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "iduser")
@@ -23,6 +23,10 @@ public class Orders {
         this.idUser = idUser;
         this.idProduct = idProduct;
         this.quantity = quantity;
+    }
+
+    public Orders() {
+
     }
 
 
