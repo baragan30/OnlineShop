@@ -104,8 +104,7 @@
                             </div>
 
                             <div class = "product-price">
-                                <p class = "last-price">Old Price: <span>$257.00</span></p>
-                                <p class = "new-price">New Price: <span>$249.00 (5%)</span></p>
+                                <p class = "new-price">Price: <span th:text="${product.getPrice()}"></span> $</p>
                             </div>
 
                             <div class = "product-detail">
@@ -122,13 +121,24 @@
 
                             <div class = "purchase-info">
                                 <form th:action="@{/makeorder}" method="post">
-                                    <input type = "number" name="productId"  th:value="${product.getId()}">
-                                    <input type = "number" name="quantity" min = "0" value = "1">
+                                    <input type = "number" name="productId" th:hidden="true" th:value="${product.getId()}">
+                                    <input id="quantity" type = "number" name="quantity" min = "0" value = "1">
+                                    <label id="totalPrice" th:text="${product.getPrice()}"></label>
                                     <button type = "submit" class = "btn">
                                         Add to Cart <i class = "fas fa-shopping-cart"></i>
                                     </button>
-                                    <button type = "button" class = "btn">Compare</button>
                                 </form>
+
+                                <script>
+                                    let totalPriceLabel = document.getElementById("totalPrice");
+                                    let quantityLabel = document.getElementById("quantity");
+                                    let initialPrice = parseFloat(totalPriceLabel.innerText);
+                                    totalPriceLabel.innerText+= " $";
+                                    console.log(initialPrice);
+                                    quantityLabel.addEventListener("change",(e)=> {
+                                        totalPriceLabel.innerText = (initialPrice * quantityLabel.value) + " $";
+                                    });
+                                </script>
                             </div>
 
                             <div class = "social-links">

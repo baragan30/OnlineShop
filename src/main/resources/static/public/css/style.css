@@ -149,9 +149,6 @@ img{
 .purchase-info .btn:first-of-type{
     background: #256eff;
 }
-.purchase-info .btn:last-of-type{
-    background: #f64749;
-}
 .purchase-info .btn:hover{
     opacity: 0.9;
 }
@@ -202,4 +199,11 @@ img{
 }
 #mainDiv{
     margin-top: 150px;
+}
+.purchase-info input{
+    width: 100px;
+}
+#totalPrice{
+    color:#4bde4b;
+    font-size:x-large;
 }
