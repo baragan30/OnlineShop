@@ -203,6 +203,9 @@ img{
 .purchase-info input{
     width: 100px;
 }
+.purchase-info .btn{
+    width: 120px;
+}
 #totalPrice{
     color:#4bde4b;
     font-size:x-large;
