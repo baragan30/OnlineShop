@@ -35,7 +35,6 @@ public class OrderController {
           orderService.findOrders();
         ArrayList<Orders> orders=new ArrayList(orderService.findOrders());
         ArrayList<OrderText> ot=new ArrayList<>();
-        System.out.println(orders.get(0).getIdUser());
         if(!orders.isEmpty()) {
             for (Orders order : orders) {
                 ot.add(new OrderText(order.getId(),
@@ -53,7 +52,6 @@ public class OrderController {
                       @ModelAttribute("quantity") Number quantity,
                       final Model model) {
 
-        System.out.println(productId + " " + quantity);
         User user = userService.findByUsername(authentication.getName());
         Orders orders = new Orders(user.getId(),productId.intValue(),quantity.intValue());
         orderService.makeOrder(orders);
