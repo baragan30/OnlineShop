@@ -125,7 +125,7 @@ r
                             <div class = "purchase-info">
                                 <form th:action="@{/makeorder}" method="post">
                                     <input type = "number" name="productId" th:hidden="true" th:value="${product.getId()}">
-                                    <input id="quantity" type = "number" name="quantity" min = "0" value = "1">
+                                    <input id="quantity" type = "number" name="quantity" min = "1" value = "1">
                                     <label id="totalPrice" th:text="${product.getPrice()}"></label>
                                     <button type = "submit" class = "btn">
                                         Buy    <i class = "fas fa-shopping-cart"></i>
