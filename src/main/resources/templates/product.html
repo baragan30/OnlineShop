@@ -105,15 +105,9 @@
                             </div>
 
                             <div class = "product-price">
-<<<<<<< HEAD
-                                <p class = "new-price">Price: <span th:text="${product.getPrice()}"></span> $</p>
-=======
-                                <!-- <p class = "last-price">Old Price: <span>$257.00</span></p> -->
-                                <p th:text=" 'New Price: $' + ${product.getPrice()}" class = "new-price" style="color:red" > </p>
-
->>>>>>> 360f60dc93e63fff0b511b008495ee1c47adf41c
+                                <p th:text=" 'Price: $' + ${product.getPrice()}" class = "new-price" style="color:red" > </p>
                             </div>
-
+r
                             <div class = "product-detail">
                                 <h2>about this item: </h2>
                                 <p th:text="${product.getDescription()}"></p>
@@ -128,14 +122,9 @@
 
                             <div class = "purchase-info">
                                 <form th:action="@{/makeorder}" method="post">
-<<<<<<< HEAD
                                     <input type = "number" name="productId" th:hidden="true" th:value="${product.getId()}">
                                     <input id="quantity" type = "number" name="quantity" min = "0" value = "1">
                                     <label id="totalPrice" th:text="${product.getPrice()}"></label>
-=======
-                                    <input type = "hidden" name="productId" min = "0" th:value="${product.getId()}">
-                                    <input type = "number" name="quantity" min = "1" value = "1">
->>>>>>> 360f60dc93e63fff0b511b008495ee1c47adf41c
                                     <button type = "submit" class = "btn">
                                         Buy    <i class = "fas fa-shopping-cart"></i>
                                     </button>
