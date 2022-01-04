@@ -26,7 +26,10 @@
     <meta property="og:type" content="website">
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-header" id="sec-c0ad"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="150" data-image-height="150">
+<!--      <h1 th:text="${udetails.getUser().getRole()}"></h1>-->
+<!--      <h1 th:text="${udetails.isWorker()}"></h1>-->
+<!--      <h1 th:text="${udetails.isClient()}"></h1>-->
+      <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="150" data-image-height="150">
           <img src="../public/images/425515980-0.png" class="u-logo-image u-logo-image-1">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -40,7 +43,9 @@
           </div>
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="home" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="productList" style="padding: 10px 20px;">ProductList</a>
+                <!-- </li><li th:if="${isclient}" class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="productList" style="padding: 10px 20px;">ProductList</a> -->
+            </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="productList" style="padding: 10px 20px;">ProductList</a>
+             </li><li th:if="${isworker}" class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" th:href="@{/see/worker}" style="padding: 10px 20px;">OrderList</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="accountSettings" style="padding: 10px 20px;">My Account</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="javascript: document.logoutForm.submit()" style="padding: 10px 20px;">Log Out</a>
 </li></ul>
@@ -50,7 +55,8 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="home" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="productList" style="padding: 10px 20px;">ProductList</a>
+                </li><li th:if="${isclient}" class="u-nav-item"><a class="u-button-style u-nav-link" href="productList" style="padding: 10px 20px;">ProductList</a>
+                </li><li th:if="${isworker}" class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/see/worker}" style="padding: 10px 20px;">OrderList</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="accountSettings" style="padding: 10px 20px;">My Account</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="javascript: document.logoutForm.submit()" style="padding: 10px 20px;">Log Out</a>
 </li></ul>
@@ -69,15 +75,6 @@
     
     <footer class="u-clearfix u-footer u-grey-80" id="sec-f527"><div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-mockup" target="_blank">
-        <span>Website Mockup</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.me" target="_blank">
-        <span>Website Builder</span>
-      </a>. 
     </section>
   </body>
   <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">

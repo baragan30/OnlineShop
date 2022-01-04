@@ -4,6 +4,7 @@ import com.onlineshopping.model.OrderText;
 import com.onlineshopping.model.Orders;
 import com.onlineshopping.model.Product;
 import com.onlineshopping.model.User;
+import com.onlineshopping.repositories.OrderRepository;
 import com.onlineshopping.services.MyUserDetailsService;
 import com.onlineshopping.services.OrderService;
 import com.onlineshopping.services.ProductService;
@@ -12,22 +13,23 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 
 @Controller
-
 public class OrderController {
     private final OrderService orderService;
     private final MyUserDetailsService userService;
     private final ProductService productService;
-
+    private final OrderRepository orderRepository;
 
     @Autowired
-    public  OrderController(OrderService orderService,MyUserDetailsService userService,ProductService productService){
+    public  OrderController(OrderService orderService,MyUserDetailsService userService,ProductService productService, OrderRepository orderRepository){
         this.orderService=orderService;
         this.userService = userService;
         this.productService = productService;
+        this.orderRepository = orderRepository;
     }
 
     @RequestMapping("/orders")
