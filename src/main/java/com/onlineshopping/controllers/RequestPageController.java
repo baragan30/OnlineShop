@@ -35,6 +35,14 @@ public class RequestPageController {
         return "homeUnlogged";
     }
 
+    public void manageAuthentification(Authentication authentication,Model model){
+        if(authentication!=null){
+            MyUserDetails details = (MyUserDetails) authentication.getPrincipal();
+            model.addAttribute("udetails", details);
+            model.addAttribute("isworker", details.isWorker());
+        }
+    }
+
     @RequestMapping("/home")
     public String goToHome(Authentication authentication, Model model) {
         if(authentication!=null){
@@ -65,13 +73,15 @@ public class RequestPageController {
     }
 
     @RequestMapping("/product")
-    public String goToProduct() {
-        return "product";
+    public String goToProduct(Authentication authentication, Model model){
+    manageAuthentification( authentication,  model);
+    return "product";
     }
 
     @RequestMapping("/productList")
-    public String goToProductList(Model model) {
+    public String goToProductList(Authentication authentication,Model model) {
         ArrayList<Product> p= new ArrayList<Product>(productService.findProducts());
+        manageAuthentification( authentication,  model);
         model.addAttribute("products",p);
         return "productList";
     }

@@ -2,8 +2,10 @@ package com.onlineshopping.controllers;
 
 import com.onlineshopping.model.Orders;
 import com.onlineshopping.repositories.OrderRepository;
+import com.onlineshopping.services.MyUserDetails;
 import com.onlineshopping.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +35,12 @@ public class WorkerController {
     }
 
     @RequestMapping("/see/worker")
-    public String seeOrder(@RequestParam(required = false) Optional<String> id, Model model) {
+    public String seeOrder(Authentication authentication, @RequestParam(required = false) Optional<String> id, Model model) {
+        if(authentication!=null){
+            MyUserDetails details = (MyUserDetails) authentication.getPrincipal();
+            model.addAttribute("udetails", details);
+            model.addAttribute("isworker", details.isWorker());
+        }
         if (id.isPresent()) {
             Integer orderId = Integer.parseInt(id.get());
             Orders order = orderService.findOrdersById(orderId);

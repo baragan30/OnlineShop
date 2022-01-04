@@ -2,8 +2,10 @@ package com.onlineshopping.controllers;
 
 import com.onlineshopping.model.Photo;
 import com.onlineshopping.model.Product;
+import com.onlineshopping.services.MyUserDetails;
 import com.onlineshopping.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +22,12 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public String getPersons(@PathVariable String id, Model model){
+    public String getPersons(Authentication authentication, @PathVariable String id, Model model){
+        if(authentication!=null){
+            MyUserDetails details = (MyUserDetails) authentication.getPrincipal();
+            model.addAttribute("udetails", details);
+            model.addAttribute("isworker", details.isWorker());
+        }
         int idI=Integer.parseInt(id);
         Product p =  productService.findProductById(idI);
         ArrayList<Photo> pics=new ArrayList<>();
