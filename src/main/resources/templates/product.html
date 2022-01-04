@@ -56,6 +56,7 @@
                     <div class="u-menu-close"></div>
                     <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/home" style="padding: 10px 20px;">Home</a>
                     </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/productList" style="padding: 10px 20px;">ProductList</a>
+                   <!-- </li><li th:if="${isworker}" class="u-nav-item"><a class="u-button-style u-nav-link" th:href="@{/see/worker}" style="padding: 10px 20px;">OrderList</a> -->
                     </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/accountSettings" style="padding: 10px 20px;">My Account</a>
                     </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="javascript: document.logoutForm.submit()" style="padding: 10px 20px;">Log Out</a>
                     </li></ul>
@@ -93,7 +94,7 @@
                         <!-- card right -->
                         <div class = "product-content">
                             <h2 id="product-title" class = "product-title" th:text="${product.getName()}"></h2>
-                            <a href = "#" class = "product-link">visit nike store</a>
+                           <!-- <a href = "#" class = "product-link">visit nike store</a>  -->
                             <div class = "product-rating">
                                 <i class = "fas fa-star"></i>
                                 <i class = "fas fa-star"></i>
@@ -104,16 +105,22 @@
                             </div>
 
                             <div class = "product-price">
+<<<<<<< HEAD
                                 <p class = "new-price">Price: <span th:text="${product.getPrice()}"></span> $</p>
+=======
+                                <!-- <p class = "last-price">Old Price: <span>$257.00</span></p> -->
+                                <p th:text=" 'New Price: $' + ${product.getPrice()}" class = "new-price" style="color:red" > </p>
+
+>>>>>>> 360f60dc93e63fff0b511b008495ee1c47adf41c
                             </div>
 
                             <div class = "product-detail">
                                 <h2>about this item: </h2>
                                 <p th:text="${product.getDescription()}"></p>
                                 <ul>
-                                    <li>Color: <span>Black</span></li>
+                                    <li>Color: <span></span></li>
                                     <li>Available: <span>in stock</span></li>
-                                    <li>Category: <span>Shoes</span></li>
+                                    <li>Category: <span></span></li>
                                     <li>Shipping Area: <span>All over the world</span></li>
                                     <li>Shipping Fee: <span>Free</span></li>
                                 </ul>
@@ -121,9 +128,14 @@
 
                             <div class = "purchase-info">
                                 <form th:action="@{/makeorder}" method="post">
+<<<<<<< HEAD
                                     <input type = "number" name="productId" th:hidden="true" th:value="${product.getId()}">
                                     <input id="quantity" type = "number" name="quantity" min = "0" value = "1">
                                     <label id="totalPrice" th:text="${product.getPrice()}"></label>
+=======
+                                    <input type = "hidden" name="productId" min = "0" th:value="${product.getId()}">
+                                    <input type = "number" name="quantity" min = "1" value = "1">
+>>>>>>> 360f60dc93e63fff0b511b008495ee1c47adf41c
                                     <button type = "submit" class = "btn">
                                         Buy    <i class = "fas fa-shopping-cart"></i>
                                     </button>
@@ -170,15 +182,6 @@
 
 <footer class="u-clearfix u-footer u-grey-80" id="sec-f527"><div class="u-align-left u-clearfix u-sheet u-sheet-1"></div></footer>
 <section class="u-backlink u-clearfix u-grey-80">
-    <a class="u-link" href="https://nicepage.com/html5-template" target="_blank">
-        <span>HTML5 Template</span>
-    </a>
-    <p class="u-text">
-        <span>created with</span>
-    </p>
-    <a class="u-link" href="https://nicepage.site" target="_blank">
-        <span>Website Builder</span>
-    </a>.
 </section>
 </body>
 <script src="../public/scripts/script.js"></script>

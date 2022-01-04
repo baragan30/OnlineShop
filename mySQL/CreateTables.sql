@@ -25,6 +25,7 @@ use OnlineShop;
         idUser Int not null,
         idProduct Int not null,
         quantity Int not null,
+        seen_by_worker boolean not null,
         FOREIGN KEY (idUser) REFERENCES Users(id),
         FOREIGN KEY (idProduct) REFERENCES Products(id)
     );

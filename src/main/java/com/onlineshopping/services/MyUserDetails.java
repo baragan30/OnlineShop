@@ -9,6 +9,10 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class MyUserDetails implements UserDetails {
+    public User getUser() {
+        return user;
+    }
+
     private User user;
     public MyUserDetails(User user) {
         this.user = user;
@@ -18,6 +22,9 @@ public class MyUserDetails implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
+
+    public boolean isWorker() { return user.getRole().equals("Worker"); }
+    public boolean isClient() { return user.getRole().equals("Client"); }
 
     @Override
     public String getPassword() {

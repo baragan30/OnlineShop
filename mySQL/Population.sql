@@ -1,7 +1,12 @@
 use OnlineShop;
 
 Insert into Users(username,password,role) values 
-('Gheorghe65','cacamas pe ea de viata','Admin');
+('client1','client','Client'),
+('client2','client','Client'),
+('client3','client','Client'),
+('Gheorghe65','gheorghe65','Admin'),
+('admin','admin','Admin'),
+('worker','worker','Worker');
 
 
 
@@ -43,5 +48,7 @@ Insert into Products(name,price,description,pic1,pic2) value
 Insert into Products(name,price,description,pic1) value
 ('Wine',1500.0,'18+ Only. Various assortments, only one.','https://www.wine-searcher.com/images/labels/62/52/10676252.jpg');
 
-Insert into Orders(idUser,idProduct,quantity) values
-    (1,1,10);
+Insert into Orders(idUser,idProduct,quantity,seen_by_worker ) values
+    (1,1,10,true),
+    (2,3,4,false),
+    (3,2,7,true);

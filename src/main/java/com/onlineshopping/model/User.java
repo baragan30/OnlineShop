@@ -1,6 +1,7 @@
 package com.onlineshopping.model;
 import javax.persistence.*;
 import java.util.Enumeration;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -55,5 +56,8 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Orders> orders;
 }
 ;

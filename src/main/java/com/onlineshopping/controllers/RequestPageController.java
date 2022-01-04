@@ -1,5 +1,6 @@
 package com.onlineshopping.controllers;
 
+import com.onlineshopping.services.MyUserDetails;
 import org.springframework.security.core.Authentication;
 import com.onlineshopping.model.Product;
 import com.onlineshopping.services.ProductService;
@@ -31,12 +32,16 @@ public class RequestPageController {
 
     @RequestMapping("/")
     public String GoToIndex() {
-        return "/home";
+        return "homeUnlogged";
     }
 
     @RequestMapping("/home")
-    public String goToHome(Authentication authentication) {
+    public String goToHome(Authentication authentication, Model model) {
         if(authentication!=null){
+            MyUserDetails details = (MyUserDetails) authentication.getPrincipal();
+            model.addAttribute("udetails", details);
+            model.addAttribute("isworker", details.isWorker());
+            model.addAttribute("isclient", details.isClient());
             return "home";
         }
         else{
@@ -47,6 +52,10 @@ public class RequestPageController {
     @RequestMapping("/accountSettings")
     public String goToAccountSettings(Authentication authentication, @RequestParam(name="username", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("username", authentication.getName());
+        MyUserDetails details = (MyUserDetails) authentication.getPrincipal();
+        model.addAttribute("udetails", details);
+        model.addAttribute("isworker", details.isWorker());
+        model.addAttribute("isclient", details.isClient());
         return "accountSettings";
     }
 
